@@ -1,0 +1,17 @@
+name: Ejercicio 2
+
+on: push
+
+jobs:
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Bajar codigo
+        uses: actions/checkout@v4
+      - name: Instalacion
+        run: pip install pylint
+      - name: Lint
+        uses: advanced-security/python-lint-code-scanning-action@v1
+        with:
+          linter: pylint
